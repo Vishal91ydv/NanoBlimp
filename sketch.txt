@@ -1,0 +1,74 @@
+// C++ code
+
+#define en1 9
+#define in1 4
+#define in2 3
+#define en2 10
+#define in3 6
+#define in4 5
+
+
+void setup() {
+
+	pinMode(en1, OUTPUT);
+	pinMode(in1, OUTPUT);
+	pinMode(in2, OUTPUT);
+	pinMode(en2, OUTPUT);
+	pinMode(in3, OUTPUT);
+	pinMode(in4, OUTPUT);
+  Serial.begin(9600);
+	
+}
+
+void loop() {	
+ if(Serial.available()>0){
+   String Dir = Serial.readString();
+   Serial.print(Dir);
+   if (Dir == "F"){
+    analogWrite(en1,255);
+    analogWrite(en2,255);
+    digitalWrite(in1, LOW);
+    digitalWrite(in2, HIGH);
+    digitalWrite(in3, LOW);
+    digitalWrite(in4, HIGH);
+   }
+   else if (Dir == "B"){
+    analogWrite(en1,255);
+    analogWrite(en2,255);
+    digitalWrite(in1, HIGH);
+    digitalWrite(in2, LOW);
+    digitalWrite(in3, HIGH);
+    digitalWrite(in4, LOW);
+   }
+   else if (Dir == "R"){
+    analogWrite(en1,255);
+    analogWrite(en2,255);
+    digitalWrite(in1, HIGH);
+    digitalWrite(in2, LOW);
+    digitalWrite(in3, LOW);
+    digitalWrite(in4, HIGH);
+   }
+   else if (Dir == "L"){
+    analogWrite(en1,255);
+    analogWrite(en2,255);
+    digitalWrite(in1, LOW);
+    digitalWrite(in2, HIGH);
+    digitalWrite(in3, HIGH);
+    digitalWrite(in4, LOW);
+   }
+   else if (Dir == "S"){
+    analogWrite(en1,0);
+    analogWrite(en2,0);
+    digitalWrite(in1, LOW);
+    digitalWrite(in2, LOW);
+    digitalWrite(in3, LOW);
+    digitalWrite(in4, LOW);
+   }
+ }
+}
+
+
+
+
+
+
